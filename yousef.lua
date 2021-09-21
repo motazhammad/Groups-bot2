@@ -1429,9 +1429,9 @@ end
 --------------------------------------------------------------------------------------------------------------
 if Chat_Type == 'GroupBot' then
 if ChekAdd(msg.chat_id_) == true then
-if text == "قفل الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
+if text == "قفل الدردشة" and msg.reply_to_message_id_ == 0 and Owner(msg) then 
 database:set(bot_id.."yousef:Lock:text"..msg.chat_id_,true) 
-Reply_Status(msg,msg.sender_user_id_,"lock","• تم قفـل الدردشه")  
+Reply_Status(msg,msg.sender_user_id_,"lock","• تم قفـل الدردشة")  
 return false
 end 
 if text == "قفل الاضافه" and msg.reply_to_message_id_ == 0 and Addictive(msg) then 
@@ -1518,7 +1518,7 @@ database:del(bot_id.."yousef:Lock:AddMempar"..msg.chat_id_)
 Reply_Status(msg,msg.sender_user_id_,"unlock","• تم فتح اضافة الاعضاء")  
 return false
 end 
-if text == "فتح الدردشه" and msg.reply_to_message_id_ == 0 and Owner(msg) then  
+if text == "فتح الدردشة" and msg.reply_to_message_id_ == 0 and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -1529,7 +1529,7 @@ end
 return false
 end 
 database:del(bot_id.."yousef:Lock:text"..msg.chat_id_)  
-Reply_Status(msg,msg.sender_user_id_,"unlock","• تم فتح الدردشه")  
+Reply_Status(msg,msg.sender_user_id_,"unlock","• تم فتح الدردشة")  
 return false
 end 
 if text == "فتح الدخول" and msg.reply_to_message_id_ == 0 and Addictive(msg) then  
@@ -4454,7 +4454,7 @@ return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 usertext = '\n •  العضو↺ ['..data.first_name_..'](t.me/'..(data.username_ or 'S0DRG')..')'
-status  = '\n •  الايدي↺ `'..result.sender_user_id_..'`\n •  تم حذف لقبه من الكروب'
+status  = '\n •  الايدي↺ `'..result.sender_user_id_..'`\n •  تم حذف لقبه من القروب'
 send(msg.chat_id_, msg.id_, usertext..status)
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.sender_user_id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
 end,nil)
@@ -4475,7 +4475,7 @@ send(msg.chat_id_,msg.id_," •  عذرا عزيزي المستخدم هاذا �
 return false 
 end      
 usertext = '\n •  العضو↺ ['..result.title_..'](t.me/'..(username or 'S0DRG')..')'
-status  = '\n •  تم حذف لقبه من الكروب'
+status  = '\n •  تم حذف لقبه من القروب'
 texts = usertext..status
 send(msg.chat_id_, msg.id_, texts)
 https.request("https://api.telegram.org/bot"..token.."/promoteChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..result.id_.."&can_change_info=false&can_delete_messages=false&can_invite_users=false&can_restrict_members=false&can_pin_messages=false&can_promote_members=false")
@@ -6117,7 +6117,7 @@ end
 send(msg.chat_id_, msg.id_,first_name.."\n"..last_name) 
 end,nil)
 end 
-if text==("عدد الكروب") and Addictive(msg) then  
+if text==("عدد القروب") and Addictive(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -6136,7 +6136,7 @@ tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub("-100","")},
 local taha = "• عدد الادمنيه : "..data.administrator_count_..
 "\n\n• عدد المطرودين : "..data.kicked_count_..
 "\n\n• عدد الاعضاء : "..data.member_count_..
-"\n\n• عدد رسائل الكروب : "..(msg.id_/2097152/0.5)..
+"\n\n• عدد رسائل القروب : "..(msg.id_/2097152/0.5)..
 "\n\n• اسم المجموعه : ["..ta.title_.."]"
 send(msg.chat_id_, msg.id_, taha) 
 end,nil)
@@ -6526,7 +6526,7 @@ local namebot = {
 " دوختو "..Namebot,
 'لتلح عاد نطيتك عين؟',
 'وبعدين وياك؟ ',
-'هلا عمري كول؟ ',
+'هلا عمري قول؟ ',
 " شتريد من "..Namebot,
 'دد لتلح؟',
 'ها بربوك',
@@ -7044,7 +7044,7 @@ local text =
 "\n".."• الاغاني ↺ "..lock_vico..
 "\n".."• المتحركه ↺ "..lock_gif..
 "\n".."• الملفات ↺ "..lock_file..
-"\n".."• الدردشه ↺ "..lock_text..
+"\n".."• الدردشة ↺ "..lock_text..
 "\n".."• الفيديو ↺ "..lock_ved..
 "\n".."• الصور ↺ "..lock_photo..
 "\n  ━═━═━═━"..
@@ -7845,8 +7845,8 @@ name = string.gsub(name,"الخيل","من قلة___شدو على الچلاب �
 name = string.gsub(name,"حداد","موكل من صخم وجهه كال آني___")
 name = string.gsub(name,"المبلل","___ما يخاف من المطر")
 name = string.gsub(name,"الحبل","اللي تلدغة الحية يخاف من جرة___")
-name = string.gsub(name,"يركص","المايعرف___يكول الكاع عوجه")
-name = string.gsub(name,"العنب","المايلوح___يكول حامض")
+name = string.gsub(name,"يركص","المايعرف___يقول الكاع عوجه")
+name = string.gsub(name,"العنب","المايلوح___يقول حامض")
 name = string.gsub(name,"العمه","___إذا حبت الچنة ابليس يدخل الجنة")
 name = string.gsub(name,"الخبز","انطي___للخباز حتى لو ياكل نصه")
 name = string.gsub(name,"باحصاد","اسمة___ومنجله مكسور")
@@ -8116,7 +8116,7 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف الكروبات" and Devyousef(msg) then
+if text == "تنظيف القروبات" and Devyousef(msg) then
 local group = database:smembers(bot_id..'yousef:Chek:Groups')  
 local w = 0
 local q = 0
@@ -8175,7 +8175,7 @@ dofile('yousef.lua')
 return false
 end
 if text == "راسلني" then
-rpl = {"ها هلاو","انطق","كول"};
+rpl = {"ها هلاو","انطق","قول"};
 sender = rpl[math.random(#rpl)]
 local msg_id = msg.id_/2097152/0.5
 https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. msg.sender_user_id_ .. '&text=' .. URL.escape(sender))
@@ -8355,8 +8355,8 @@ https.request("https://api.telegram.org/bot"..token..'/sendVoice?chat_id=' .. ms
 end
 end
 end
-if text and text:match("^كول (.*)$") then
-local Textxt = text:match("^كول (.*)$")
+if text and text:match("^قول (.*)$") then
+local Textxt = text:match("^قول (.*)$")
 send(msg.chat_id_, msg.id_, Textxt)
 end
 if (msg.content_.sticker_)  and msg.reply_to_message_id_ == 0 and database:get(bot_id.."yousef:Lock:Xn"..msg.chat_id_)=="del" then      
@@ -8552,7 +8552,7 @@ end
 for i = 1, #Users do
 database:sadd(bot_id..'yousef:UsersBot',Users[i])  
 end
-send(msg.chat_id_, msg.id_,'• تم نقل : '..#Groups..' كروب\n• تم نقل : '..#Users..' مشترك \n• من التحديث القديم الى التحديث الجديد')
+send(msg.chat_id_, msg.id_,'• تم نقل : '..#Groups..' قروب\n• تم نقل : '..#Users..' مشترك \n• من التحديث القديم الى التحديث الجديد')
 end
 if text == 'حذف كليشه المطور' and Devyousef(msg) then
 database:del(bot_id..'yousef:Text_Dev')
@@ -8691,7 +8691,7 @@ end
 return false
 end
 Text = [[
-• اوامر حمايه المجموعه
+• اوامر حماية المجموعه
   ━═━═━═━
 • قفل/فتح + الاوامر الادناه 
 • قفل/فتح + الامر بالتقيد• بالطرد• بالكتم
@@ -8709,7 +8709,7 @@ Text = [[
 • الملصقات
 • الفيديو
 • الانلاين
-• الدردشه
+• الدردشة
 • التوجيه
 • الاغاني
 • الصوت
@@ -8744,7 +8744,7 @@ Text = [[
 • اضف /مسح صلاحيه
 • وضع تكرار + العدد
 • رفع/تنزيل مميز
-• عدد الكروب
+• عدد القروب
 • تاك للكل
   ━═━═━═━
 • كتم
@@ -9128,7 +9128,7 @@ local Text = '• مرحبا بك في اوامر المطور الجاهزه'
 local keyboard = {
 {'الاحصائيات•','تغيير المطور الاساسي•'},
 {'تفعيل التواصل•','تعطيل التواصل•'},
-{'تنظيف الكروبات•','تنظيف المشتركين•'},
+{'تنظيف القروبات•','تنظيف المشتركين•'},
 {'تفعيل البوت الخدمي•','تعطيل البوت الخدمي•'},
 {'اذاعه خاص•','المطورين•','اذاعه•'},
 {'اذاعه بالتوجيه•','اذاعه بالتوجيه خاص•'},
@@ -9155,7 +9155,7 @@ if start then
 Test = start
 else
 tdcli_function ({ID = "GetUser",user_id_ = Sudo},function(arg,data) 
-Test = '• مرحبا انا بوت حماية كروبات\n• وضيفتي حماية المجموعات من السبام والتفليش والخ...\n• لتفعيل البوت اضفني الى مجموعاتك قم برفعي مشرف ثم ارسل تفعيل \n• معرف المطور @['..data.username_..']'
+Test = '• مرحبا انا بوت حماية قروبات\n• وضيفتي حماية المجموعات من السبام والتفليش والخ...\n• لتفعيل البوت اضفني الى مجموعاتك قم برفعي مشرف ثم ارسل تفعيل \n• معرف المطور @['..data.username_..']'
 end,nil)
 end 
 send(msg.chat_id_, msg.id_, Test) 
@@ -9330,7 +9330,7 @@ end,nil)
 end
 return false
 end
-if text == "تنظيف الكروبات•" then
+if text == "تنظيف القروبات•" then
 local group = database:smembers(bot_id..'yousef:Chek:Groups')  
 local w = 0
 local q = 0
@@ -9962,7 +9962,7 @@ end
 elseif Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-• اوامر حمايه المجموعه
+• اوامر حماية المجموعه
   ━═━═━═━
 • قفل/فتح + الاوامر الادناه 
 • قفل/فتح + الامر بالتقيد• بالطرد• بالكتم
@@ -9980,7 +9980,7 @@ local Teext =[[
 • الملصقات
 • الفيديو
 • الانلاين
-• الدردشه
+• الدردشة
 • التوجيه
 • الاغاني
 • الصوت
@@ -10021,7 +10021,7 @@ local Teext =[[
 • اضف /مسح صلاحيه
 • وضع تكرار + العدد
 • رفع/تنزيل مميز
-• عدد الكروب
+• عدد القروب
 • تاك للكل
   ━═━═━═━
 • كتم
