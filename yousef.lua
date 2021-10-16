@@ -8641,7 +8641,7 @@ keyboard.inline_keyboard = {
 {text = 'آوآمر آلتنظيف', callback_data=msg.sender_user_id_.."/help0"},{text = 'آوآمر الحماية', callback_data=msg.sender_user_id_.."/help1"},
 },
 {
-{text = 'آوآمر آلادمنية', callback_data=msg.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=msg.sender_user_id_.."/help3"},
+{text = 'آوآمر الادامن', callback_data=msg.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=msg.sender_user_id_.."/help3"},
 },
 {
 {text = 'آوآمر آلمنشئين', callback_data=msg.sender_user_id_.."/help4"},{text = 'آوآمر آلمطورين', callback_data=msg.sender_user_id_.."/help5"},
@@ -8738,7 +8738,7 @@ end
 return false
 end
 Text = [[
-• آوآمر آلادمنية
+• آوآمر الادامن
   ━═━═━═━ 
 • تفعيل/تعطيل الترحيب
 • اضف /مسح صلاحيه
@@ -9948,7 +9948,7 @@ keyboard.inline_keyboard = {
 {text = 'آوآمر آلتنظيف', callback_data=data.sender_user_id_.."/help0"},{text = 'آوآمر الحماية', callback_data=data.sender_user_id_.."/help1"},
 },
 {
-{text = 'آوآمر آلادمنية', callback_data=data.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=data.sender_user_id_.."/help3"},
+{text = 'آوآمر الادامن', callback_data=data.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = 'آوآمر آلمنشئين', callback_data=data.sender_user_id_.."/help4"},{text = 'آوآمر آلمطورين', callback_data=data.sender_user_id_.."/help5"},
@@ -10001,7 +10001,7 @@ keyboard.inline_keyboard = {
 {text = 'آوآمر آلتنظيف', callback_data=data.sender_user_id_.."/help0"},{text = 'آوآمر الحماية', callback_data=data.sender_user_id_.."/help1"},
 },
 {
-{text = 'آوآمر آلادمنية', callback_data=data.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=data.sender_user_id_.."/help3"},
+{text = 'آوآمر الادامن', callback_data=data.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = 'آوآمر آلمنشئين', callback_data=data.sender_user_id_.."/help4"},{text = 'آوآمر آلمطورين', callback_data=data.sender_user_id_.."/help5"},
@@ -10015,7 +10015,7 @@ end
 elseif Text and Text:match('(.*)/help2') then
 if tonumber(Text:match('(.*)/help2')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-• آوآمر آلادمنية
+• آوآمر الادامن
   ━═━═━═━ 
 • تفعيل/تعطيل الترحيب
 • اضف /مسح صلاحيه
@@ -10079,7 +10079,7 @@ keyboard.inline_keyboard = {
 {text = 'آوآمر آلتنظيف', callback_data=data.sender_user_id_.."/help0"},{text = 'آوآمر الحماية', callback_data=data.sender_user_id_.."/help1"},
 },
 {
-{text = 'آوآمر آلادمنية', callback_data=data.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=data.sender_user_id_.."/help3"},
+{text = 'آوآمر الادامن', callback_data=data.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = 'آوآمر آلمنشئين', callback_data=data.sender_user_id_.."/help4"},{text = 'آوآمر آلمطورين', callback_data=data.sender_user_id_.."/help5"},
@@ -10134,7 +10134,7 @@ keyboard.inline_keyboard = {
 {text = 'آوآمر آلتنظيف', callback_data=data.sender_user_id_.."/help0"},{text = 'آوآمر الحماية', callback_data=data.sender_user_id_.."/help1"},
 },
 {
-{text = 'آوآمر آلادمنية', callback_data=data.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=data.sender_user_id_.."/help3"},
+{text = 'آوآمر الادامن', callback_data=data.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = 'آوآمر آلمنشئين', callback_data=data.sender_user_id_.."/help4"},{text = 'آوآمر آلمطورين', callback_data=data.sender_user_id_.."/help5"},
@@ -10179,7 +10179,7 @@ keyboard.inline_keyboard = {
 {text = 'آوآمر آلتنظيف', callback_data=data.sender_user_id_.."/help0"},{text = 'آوآمر الحماية', callback_data=data.sender_user_id_.."/help1"},
 },
 {
-{text = 'آوآمر آلادمنية', callback_data=data.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=data.sender_user_id_.."/help3"},
+{text = 'آوآمر الادامن', callback_data=data.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = 'آوآمر آلمنشئين', callback_data=data.sender_user_id_.."/help4"},{text = 'آوآمر آلمطورين', callback_data=data.sender_user_id_.."/help5"},
@@ -10244,7 +10244,7 @@ keyboard.inline_keyboard = {
 {text = 'آوآمر آلتنظيف', callback_data=data.sender_user_id_.."/help0"},{text = 'آوآمر الحماية', callback_data=data.sender_user_id_.."/help1"},
 },
 {
-{text = 'آوآمر آلادمنية', callback_data=data.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=data.sender_user_id_.."/help3"},
+{text = 'آوآمر الادامن', callback_data=data.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = 'آوآمر آلمنشئين', callback_data=data.sender_user_id_.."/help4"},{text = 'آوآمر آلمطورين', callback_data=data.sender_user_id_.."/help5"},
@@ -10267,7 +10267,7 @@ keyboard.inline_keyboard = {
 {text = 'آوآمر آلتنظيف', callback_data=data.sender_user_id_.."/help0"},{text = 'آوآمر الحماية', callback_data=data.sender_user_id_.."/help1"},
 },
 {
-{text = 'آوآمر آلادمنية', callback_data=data.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=data.sender_user_id_.."/help3"},
+{text = 'آوآمر الادامن', callback_data=data.sender_user_id_.."/help2"},{text = 'آوآمر آلمدرآء', callback_data=data.sender_user_id_.."/help3"},
 },
 {
 {text = 'آوآمر آلمنشئين', callback_data=data.sender_user_id_.."/help4"},{text = 'آوآمر آلمطورين', callback_data=data.sender_user_id_.."/help5"},
