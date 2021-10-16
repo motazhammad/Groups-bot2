@@ -7248,7 +7248,7 @@ end
 if text == 'حذف الايدي' or text == 'مسح الايدي' then
 if Owner(msg) then
 database:del(bot_id.."yousef:Klesh:Id:Bot"..msg.chat_id_)
-send(msg.chat_id_, msg.id_, '• تم ازالة كليشة الايدي ')
+send(msg.chat_id_, msg.id_, '• تم ازالة رسالة الايدي ')
 end
 return false  
 end 
@@ -7930,12 +7930,12 @@ database:del(bot_id..'yousef:messageUser'..msg.chat_id_..':'..msg.sender_user_id
 local Text = '• تم مسح جميع رسائلك '
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'سحكاتي' or text == 'تعديلاتي' then
+if text == 'تعديلاتي' or text == 'تعديلاتي' then
 local edit = database:get(bot_id..'yousef:message_edit'..msg.chat_id_..msg.sender_user_id_) or 0
 local Text = '• عدد التعديلات هنا *~ '..edit..'*'
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == 'مسح سحكاتي' or text == 'مسح تعديلاتي' then
+if text == 'مسح تعديلاتي' or text == 'مسح تعديلاتي' then
 database:del(bot_id..'yousef:message_edit'..msg.chat_id_..':'..msg.sender_user_id_)
 local Text = '• تم مسح جميع تعديلاتك '
 send(msg.chat_id_, msg.id_,Text) 
@@ -8554,24 +8554,24 @@ database:sadd(bot_id..'yousef:UsersBot',Users[i])
 end
 send(msg.chat_id_, msg.id_,'• تم نقل : '..#Groups..' قروب\n• تم نقل : '..#Users..' مشترك \n• من التحديث القديم الى التحديث الجديد')
 end
-if text == 'حذف كليشه المطور' and Devyousef(msg) then
+if text == 'حذف رسالة المطور' and Devyousef(msg) then
 database:del(bot_id..'yousef:Text_Dev')
-send(msg.chat_id_, msg.id_,'• تم حذف كليشه المطور')
+send(msg.chat_id_, msg.id_,'• تم حذف رسالة المطور')
 end
-if text == 'وضع كليشه المطور' and Devyousef(msg) then
+if text == 'وضع رسالة المطور' and Devyousef(msg) then
 database:set(bot_id..'yousef:Set:Text_Dev'..msg.chat_id_,true)
-send(msg.chat_id_,msg.id_,'• ارسل الكليشه الان')
+send(msg.chat_id_,msg.id_,'• ارسل الرسالة الان')
 return false
 end
 if text and database:get(bot_id..'yousef:Set:Text_Dev'..msg.chat_id_) then
 if text == 'الغاء' then 
 database:del(bot_id..'yousef:Set:Text_Dev'..msg.chat_id_)
-send(msg.chat_id_,msg.id_,'• تم الغاء حفظ كليشة المطور')
+send(msg.chat_id_,msg.id_,'• تم الغاء حفظ رسالة المطور')
 return false
 end
 database:set(bot_id..'yousef:Text_Dev',text)
 database:del(bot_id..'yousef:Set:Text_Dev'..msg.chat_id_)
-send(msg.chat_id_,msg.id_,'• تم حفظ كليشة المطور')
+send(msg.chat_id_,msg.id_,'• تم حفظ رسالة المطور')
 return false
 end
 if text == "الساعه" then
@@ -8772,7 +8772,7 @@ Text = [[
 • الترحيب
 • ايدي
 • جهاتي
-• سحكاتي
+• تعديلاتي
 • رسائلي
 • كشف البوتات
   ━═━═━═━
@@ -8911,8 +8911,8 @@ Text = [[
 • مسح ردود المطور
 • مسح جميع الملفات
 • اضف /حذف مطور 
-• وضع كليشه المطور 
-• حذف كليشه المطور 
+• وضع رسالة المطور 
+• حذف رسالة المطور 
 • تفعيل البوت الخدمي 
 • تعطيل البوت الخدمي
 • تفعيل ملف + اسم الملف
@@ -9135,7 +9135,7 @@ local keyboard = {
 {'تفعيل الاذاعه•','تعطيل الاذاعه•'},
 {'تفعيل المغادره•','تعطيل المغادره•'},
 {'مسح قائمه العام•','مسح المطورين•'},
-{'حذف كليشه ستارت•','ضع كليشه ستارت•'},
+{'حذف رسالة ستارت•','ضع رسالة ستارت•'},
 {'- تعطيل الاشتراك الاجباري• .'},
 {'- تغير الاشتراك• .','حذف رساله الاشتراك• .'},
 {'- تفعيل الاشتراك الاجباري• .'},
@@ -9478,23 +9478,23 @@ return false
 end
 if text and database:get(bot_id..'Start:Bots') then
 if text == 'الغاء•' then   
-send(msg.chat_id_, msg.id_,"• تم الغاء حفظ كليشه ستارت") 
+send(msg.chat_id_, msg.id_,"• تم الغاء حفظ رسالة ستارت") 
 database:del(bot_id..'Start:Bots') 
 return false
 end
 database:set(bot_id.."Start:Bot",text)  
-send(msg.chat_id_, msg.id_,'• تم حفظ كليشه ستارت') 
+send(msg.chat_id_, msg.id_,'• تم حفظ رسالة ستارت') 
 database:del(bot_id..'Start:Bots') 
 return false
 end
-if text == 'ضع كليشه ستارت•' then
+if text == 'ضع رسالة ستارت•' then
 database:set(bot_id..'Start:Bots',true) 
-send(msg.chat_id_, msg.id_,'• ارسل لي الكليشه الان') 
+send(msg.chat_id_, msg.id_,'• ارسل لي الرسالة الان') 
 return false
 end
-if text == 'حذف كليشه ستارت•' then
+if text == 'حذف رسالة ستارت•' then
 database:del(bot_id..'Start:Bot') 
-send(msg.chat_id_, msg.id_,'• تم حذف كليشه ستارت') 
+send(msg.chat_id_, msg.id_,'• تم حذف رسالة ستارت') 
 end
 if text and text:match("^- تغير الاشتراك• .$") and Devyousef(msg) then  
 database:setex(bot_id.."add:ch:jm" .. msg.chat_id_ .. "" .. msg.sender_user_id_, 360, true)  
@@ -10049,7 +10049,7 @@ local Teext =[[
 • الترحيب
 • ايدي
 • جهاتي
-• سحكاتي
+• تعديلاتي
 • رسائلي
 • كشف البوتات
   ━═━═━═━
@@ -10215,8 +10215,8 @@ local Teext =[[
 • مسح ردود المطور
 • مسح جميع الملفات
 • اضف /حذف مطور 
-• وضع كليشه المطور 
-• حذف كليشه المطور 
+• وضع رسالة المطور 
+• حذف رسالة المطور 
 • تفعيل البوت الخدمي 
 • تعطيل البوت الخدمي
 • تفعيل ملف + اسم الملف
