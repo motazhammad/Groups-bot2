@@ -1716,22 +1716,26 @@ end
 return false
 end
 database:set(bot_id.."yousef:Lock:User:Name"..msg.chat_id_,"del")  
-Reply_Status(msg,msg.sender_user_id_,"lock","• تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lock","• تم قفـل المعرفات
+هذا يعني منع نشر المعرفات")  
 return false
 end 
 if text == "قفل المعرفات بالتقيد" and Addictive(msg) then
 database:set(bot_id.."yousef:Lock:User:Name"..msg.chat_id_,"ked")  
-Reply_Status(msg,msg.sender_user_id_,"lockkid","• تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkid","• تم قفـل المعرفات
+هذا يعني منع نشر المعرفات")  
 return false
 end 
 if text == "قفل المعرفات بالكتم" and Addictive(msg) then
 database:set(bot_id.."yousef:Lock:User:Name"..msg.chat_id_,"ktm")  
-Reply_Status(msg,msg.sender_user_id_,"lockktm","• تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockktm","• تم قفـل المعرفات
+هذا يعني منع نشر المعرفات")  
 return false
 end 
 if text == "قفل المعرفات بالطرد" and Addictive(msg) then
 database:set(bot_id.."yousef:Lock:User:Name"..msg.chat_id_,"kick")  
-Reply_Status(msg,msg.sender_user_id_,"lockkick","• تم قفـل المعرفات")  
+Reply_Status(msg,msg.sender_user_id_,"lockkick","• تم قفـل المعرفات
+هذا يعني منع نشر المعرفات")  
 return false
 end 
 if text == "فتح المعرفات" and Addictive(msg) then  
