@@ -6651,7 +6651,7 @@ end
 
 if text == "بوت" then
 Namebot = (database:get(bot_id.."yousef:Name:Bot") or "يوسف لبان")
-send(msg.chat_id_, msg.id_,"اسمي ["..Namebot.."] 🦇 ") 
+send(msg.chat_id_, msg.id_,"اسمي ["..Namebot.."] 🇸🇦 ") 
 end
 if text == "تغير اسم البوت" or text == "تغيير اسم البوت" or text == "حذف اسم البوت" then 
 if Devyousef(msg) then
