@@ -659,7 +659,7 @@ if v.linkgroup then
 if v.linkgroup ~= "" then
 database:set(bot_id.."Private:Group:Link"..idg,v.linkgroup)   
 end;end;end
-send(chat,msg.id_,"• تم رفع الملف بنجاح وتفعيل المجموعات\n• ورفع {الامنشئين الاساسين ; والمنشئين ; والمدراء; والادمنيه} بنجاح")   
+send(chat,msg.id_,"• تم رفع الملف بنجاح وتفعيل المجموعات\n• ورفع {الامنشئين الاساسين ; والمنشئين ; والمدراء; والادامن} بنجاح")   
 end
 
 function Is_Not_Spam(msg,type)
@@ -2504,7 +2504,7 @@ database:del(bot_id.."yousef:Manager"..msg.chat_id_)
 texts = "• تم مسح المدراء "
 send(msg.chat_id_, msg.id_, texts)
 end
-if text == "مسح الادمنيه" and Owner(msg) then  
+if text == "مسح الادامن" and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2709,7 +2709,7 @@ t = "• لا يوجد مدراء"
 end
 send(msg.chat_id_, msg.id_, t)
 end
-if text == ("الادمنيه") and Owner(msg) then  
+if text == ("الادامن") and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -2720,7 +2720,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."yousef:Mod:User"..msg.chat_id_)
-t = "\n• قائمة الادمنيه \n  ━═━═━═━\n"
+t = "\n• قائمة الادامن \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."yousef:User:Name" .. v)
 if username then
@@ -2730,7 +2730,7 @@ t = t..""..k.."- (`"..v.."`)\n"
 end
 end
 if #list == 0 then
-t = "• لا يوجد ادمنيه"
+t = "• لا يوجد ادامن"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -3364,7 +3364,7 @@ return false
 end
 function Function_yousef(extra, result, success)
 database:srem(bot_id.."yousef:Mod:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من ادمنيه المجموعة")  
+Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من ادامن المجموعة")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_yousef, nil)
 return false
@@ -3383,7 +3383,7 @@ local username = text:match("^تنزيل ادمن @(.*)$")
 function Function_yousef(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."yousef:Mod:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم تنزيله من ادمنيه المجموعة")  
+Reply_Status(msg,result.id_,"reply","• تم تنزيله من ادامن المجموعة")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3403,7 +3403,7 @@ return false
 end
 local userid = text:match("^تنزيل ادمن (%d+)$")
 database:srem(bot_id.."yousef:Mod:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم تنزيله من ادمنيه المجموعة")  
+Reply_Status(msg,userid,"reply","• تم تنزيله من ادامن المجموعة")  
 return false
 end
 
@@ -6133,7 +6133,7 @@ return false
 end 
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,ta) 
 tdcli_function({ID="GetChannelFull",channel_id_ = msg.chat_id_:gsub("-100","")},function(arg,data) 
-local taha = "• عدد الادمنيه : "..data.administrator_count_..
+local taha = "• عدد الادامن : "..data.administrator_count_..
 "\n\n• عدد المطرودين : "..data.kicked_count_..
 "\n\n• عدد الاعضاء : "..data.member_count_..
 "\n\n• عدد رسائل القروب : "..(msg.id_/2097152/0.5)..
@@ -6385,7 +6385,7 @@ end
 end,nil) 
 end
 
-if text ==("رفع الادمنيه") and Owner(msg) then
+if text ==("رفع الادامن") and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -8817,9 +8817,9 @@ Text = [[
 • تنزيل الكل
 • رفع ادمن
 • تنزيل ادمن
-• رفع الادمنيه
-• مسح الادمنيه
-• الادمنيه
+• رفع الادامن
+• مسح الادامن
+• الادامن
 • تعين الايدي
 • مسح الايدي
 • ردود المدير
@@ -10100,9 +10100,9 @@ local Teext =[[
 • تنزيل الكل
 • رفع ادمن
 • تنزيل ادمن
-• رفع الادمنيه
-• مسح الادمنيه
-• الادمنيه
+• رفع الادامن
+• مسح الادامن
+• الادامن
 • تعين الايدي
 • مسح الايدي
 • ردود المدير
