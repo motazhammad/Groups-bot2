@@ -542,7 +542,7 @@ send(msg.chat_id_, msg.id_,NameUserr.."\n"..text)
 return false
 end
 else
-send(msg.chat_id_, msg.id_,"• الحساب محذوف يرجى استخدام الامر بصوره صحيحه")
+send(msg.chat_id_, msg.id_,"• الحساب محذوف يرجى استخدام الامر بصورة صحيحه")
 end
 end,nil)   
 end -- end
@@ -596,7 +596,7 @@ end
 function Addjpg(msg,chat,ID_FILE,File_Name)
 local File = json:decode(https.request('https://api.telegram.org/bot'.. token..'/getfile?file_id='..ID_FILE)) 
 download_to_file('https://api.telegram.org/file/bot'..token..'/'..File.result.file_path,File_Name) 
-sendPhoto(msg.chat_id_,msg.id_,'./'..File_Name,'تم تحويل الملصق الى صوره')     
+sendPhoto(msg.chat_id_,msg.id_,'./'..File_Name,'تم تحويل الملصق الى صورة')     
 os.execute('rm -rf ./'..File_Name) 
 end
 function Addvoi(msg,chat,vi,ty)
@@ -744,7 +744,7 @@ sendSticker(v, 0, msg.content_.sticker_.sticker_.persistent_id_)
 database:set(bot_id..'yousef:Msg:Pin:Chat'..v,msg.content_.sticker_.sticker_.persistent_id_) 
 end 
 end
-send(msg.chat_id_, msg.id_,"• تمت الاذاعه الى *~ "..#list.." ~* مجموعه ")     
+send(msg.chat_id_, msg.id_,"• تمت الاذاعه الى *~ "..#list.." ~* مجموعة ")     
 database:del(bot_id.."yousef:yousef:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end
@@ -1207,10 +1207,10 @@ send(msg.chat_id_, msg.id_,"• عذرا البوت ليس ادمن يرجى ت�
 database:del(bot_id.."yousef:Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
 return false  end
 if data.message_ == "CHAT_ADMIN_REQUIRED" then 
-send(msg.chat_id_, msg.id_,"• ليس لدي صلاحية تغيير معلومات المجموعه يرجى المحاوله لاحقا") 
+send(msg.chat_id_, msg.id_,"• ليس لدي صلاحية تغيير معلومات المجموعة يرجى المحاوله لاحقا") 
 database:del(bot_id.."yousef:Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
 else
-send(msg.chat_id_, msg.id_,"• تم تغيير صورة المجموعه") 
+send(msg.chat_id_, msg.id_,"• تم تغيير صورة المجموعة") 
 end
 end, nil) 
 database:del(bot_id.."yousef:Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_) 
@@ -1225,7 +1225,7 @@ return false
 end 
 database:del(bot_id.."yousef:Set:Description" .. msg.chat_id_ .. "" .. msg.sender_user_id_)   
 https.request("https://api.telegram.org/bot"..token.."/setChatDescription?chat_id="..msg.chat_id_.."&description="..text) 
-send(msg.chat_id_, msg.id_,"• تم تغيير وصف المجموعه")   
+send(msg.chat_id_, msg.id_,"• تم تغيير وصف المجموعة")   
 return false  
 end 
 --------------------------------------------------------------------------------------------------------------
@@ -1237,7 +1237,7 @@ return false
 end 
 database:del(bot_id.."yousef:Welcome:Group" .. msg.chat_id_ .. "" .. msg.sender_user_id_)  
 database:set(bot_id.."yousef:Get:Welcome:Group"..msg.chat_id_,text) 
-send(msg.chat_id_, msg.id_,"• تم حفظ ترحيب المجموعه")   
+send(msg.chat_id_, msg.id_,"• تم حفظ ترحيب المجموعة")   
 return false   
 end
 --------------------------------------------------------------------------------------------------------------
@@ -1319,7 +1319,7 @@ for k,v in pairs(list) do
 sendSticker(v, 0, msg.content_.sticker_.sticker_.persistent_id_)   
 end 
 end
-send(msg.chat_id_, msg.id_,"• تمت الاذاعه الى *~ "..#list.." ~* مجموعه ")     
+send(msg.chat_id_, msg.id_,"• تمت الاذاعه الى *~ "..#list.." ~* مجموعة ")     
 database:del(bot_id.."yousef:yousef:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 return false
 end
@@ -1340,7 +1340,7 @@ message_ids_ = {[0] = msg.id_},
 disable_notification_ = 0,
 from_background_ = 1},function(a,t) end,nil) 
 end   
-send(msg.chat_id_, msg.id_,"• تمت الاذاعه الى *~ "..#list.." ~* مجموعه ")     
+send(msg.chat_id_, msg.id_,"• تمت الاذاعه الى *~ "..#list.." ~* مجموعة ")     
 database:del(bot_id.."yousef:yousef:Fwd:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_) 
 end 
 return false
@@ -1371,7 +1371,7 @@ end
 if text and not Vips(msg) then  
 local yousef_Msg = database:sismember(bot_id.."yousef:List:Filter:text"..msg.chat_id_,text) 
 if yousef_Msg then    
-Reply_Status(msg,msg.sender_user_id_,"reply","• الكلمه ممنوعه من المجموعه")  
+Reply_Status(msg,msg.sender_user_id_,"reply","• الكلمه ممنوعه من المجموعة")  
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
 return false
 end
@@ -1379,7 +1379,7 @@ end
 if msg.content_.ID == 'MessageAnimation' and not Vips(msg) then      
 local geAni = database:sismember(bot_id.."yousef:List:Filter:Animation"..msg.chat_id_,msg.content_.animation_.animation_.persistent_id_) 
 if geAni then        
-Reply_Status(msg,msg.sender_user_id_,"reply","• المتحركه ممنوعه من المجموعه")  
+Reply_Status(msg,msg.sender_user_id_,"reply","• المتحركه ممنوعه من المجموعة")  
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
 return false
 end
@@ -1387,7 +1387,7 @@ end
 if msg.content_.ID == 'MessageSticker' and not Vips(msg) then      
 local ker = database:sismember(bot_id.."yousef:List:Filter:Sticker"..msg.chat_id_,msg.content_.sticker_.sticker_.persistent_id_) 
 if ker then        
-Reply_Status(msg,msg.sender_user_id_,"reply","• الملصق ممنوع من المجموعه")  
+Reply_Status(msg,msg.sender_user_id_,"reply","• الملصق ممنوع من المجموعة")  
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
 return false
 end
@@ -1395,7 +1395,7 @@ end
 if msg.content_.ID == 'MessagePhoto' and not Vips(msg) then      
 local phh = database:sismember(bot_id.."yousef:List:Filter:Photo"..msg.chat_id_,msg.content_.photo_.sizes_[1].photo_.persistent_id_) 
 if phh then        
-Reply_Status(msg,msg.sender_user_id_,"reply","• الصوره ممنوعه من المجموعه")  
+Reply_Status(msg,msg.sender_user_id_,"reply","• الصورة ممنوعه من المجموعة")  
 DeleteMessage(msg.chat_id_, {[0] = msg.id_})     
 return false
 end
@@ -2397,7 +2397,7 @@ local username = text:match("^اضف مطور ثانوي @(.*)$")
 function Function_yousef(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 database:sadd(bot_id.."DEV:Sudo:T", result.id_)
@@ -2736,7 +2736,7 @@ send(msg.chat_id_, msg.id_, t)
 end
 if text == ("المميزين") and Addictive(msg) then
 local list = database:smembers(bot_id.."yousef:Special:User"..msg.chat_id_)
-t = "\n• قائمة مميزين المجموعه \n  ━═━═━═━\n"
+t = "\n• قائمة مميزين المجموعة \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."yousef:User:Name" .. v)
 if username then
@@ -2787,7 +2787,7 @@ end
 return false
 end
 local list = database:smembers(bot_id.."yousef:Ban:User"..msg.chat_id_)
-t = "\n• قائمة محظورين المجموعه \n  ━═━═━═━\n"
+t = "\n• قائمة محظورين المجموعة \n  ━═━═━═━\n"
 for k,v in pairs(list) do
 local username = database:get(bot_id.."yousef:User:Name" .. v)
 if username then
@@ -2820,7 +2820,7 @@ local username = text:match("^حظر عام @(.*)$")
 function Function_yousef(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 if result.id_ == tonumber(874820580) then
@@ -2907,7 +2907,7 @@ local username = text:match("^اضف مطور @(.*)$")
 function Function_yousef(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 database:sadd(bot_id.."yousef:Sudo:User", result.id_)
@@ -2984,7 +2984,7 @@ local username = text:match("^رفع منشئ اساسي @(.*)$")
 function Function_yousef(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 database:sadd(bot_id.."yousef:Basic:Constructor"..msg.chat_id_, result.id_)
@@ -3079,7 +3079,7 @@ return false
 end
 function Function_yousef(extra, result, success)
 database:sadd(bot_id.."yousef:Constructor"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته منشئ في المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته منشئ في المجموعة")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_yousef, nil)
 end
@@ -3097,11 +3097,11 @@ local username = text:match("^رفع منشئ @(.*)$")
 function Function_yousef(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 database:sadd(bot_id.."yousef:Constructor"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم ترقيته منشئ في المجموعه")  
+Reply_Status(msg,result.id_,"reply","• تم ترقيته منشئ في المجموعة")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3121,7 +3121,7 @@ return false
 end
 local userid = text:match("^رفع منشئ (%d+)$")
 database:sadd(bot_id.."yousef:Constructor"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم ترقيته منشئ في المجموعه")  
+Reply_Status(msg,userid,"reply","• تم ترقيته منشئ في المجموعة")  
 end
 if text and text:match("^تنزيل منشئ$") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then
 function Function_yousef(extra, result, success)
@@ -3180,7 +3180,7 @@ return false
 end
 function Function_yousef(extra, result, success)
 database:sadd(bot_id.."yousef:Manager"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مدير المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مدير المجموعة")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_yousef, nil)
 return false
@@ -3199,11 +3199,11 @@ local username = text:match("^رفع مدير @(.*)$")
 function Function_yousef(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 database:sadd(bot_id.."yousef:Manager"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم ترقيته مدير المجموعه")  
+Reply_Status(msg,result.id_,"reply","• تم ترقيته مدير المجموعة")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3224,7 +3224,7 @@ return false
 end
 local userid = text:match("^رفع مدير (%d+)$") 
 database:sadd(bot_id.."yousef:Manager"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم ترقيته مدير المجموعه")  
+Reply_Status(msg,userid,"reply","• تم ترقيته مدير المجموعة")  
 return false
 end  
 if text == ("تنزيل مدير") and tonumber(msg.reply_to_message_id_) ~= 0 and Constructor(msg) then  
@@ -3298,7 +3298,7 @@ return false
 end
 function Function_yousef(extra, result, success)
 database:sadd(bot_id.."yousef:Mod:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته ادمن للمجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته ادمن للمجموعة")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_yousef, nil)
 return false
@@ -3321,11 +3321,11 @@ end
 function Function_yousef(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 database:sadd(bot_id.."yousef:Mod:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم ترقيته ادمن للمجموعه")  
+Reply_Status(msg,result.id_,"reply","• تم ترقيته ادمن للمجموعة")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3349,7 +3349,7 @@ send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لا�
 return false
 end
 database:sadd(bot_id.."yousef:Mod:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم ترقيته ادمن للمجموعه")  
+Reply_Status(msg,userid,"reply","• تم ترقيته ادمن للمجموعة")  
 return false
 end
 if text == ("تنزيل ادمن") and tonumber(msg.reply_to_message_id_) ~= 0 and Owner(msg) then  
@@ -3364,7 +3364,7 @@ return false
 end
 function Function_yousef(extra, result, success)
 database:srem(bot_id.."yousef:Mod:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من ادمنيه المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من ادمنيه المجموعة")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_yousef, nil)
 return false
@@ -3383,7 +3383,7 @@ local username = text:match("^تنزيل ادمن @(.*)$")
 function Function_yousef(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."yousef:Mod:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم تنزيله من ادمنيه المجموعه")  
+Reply_Status(msg,result.id_,"reply","• تم تنزيله من ادمنيه المجموعة")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3403,7 +3403,7 @@ return false
 end
 local userid = text:match("^تنزيل ادمن (%d+)$")
 database:srem(bot_id.."yousef:Mod:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم تنزيله من ادمنيه المجموعه")  
+Reply_Status(msg,userid,"reply","• تم تنزيله من ادمنيه المجموعة")  
 return false
 end
 
@@ -3423,7 +3423,7 @@ return false
 end
 function Function_yousef(extra, result, success)
 database:sadd(bot_id.."yousef:Special:User"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مميز للمجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته مميز للمجموعة")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_yousef, nil)
 return false
@@ -3446,11 +3446,11 @@ end
 function Function_yousef(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 database:sadd(bot_id.."yousef:Special:User"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم ترقيته مميز للمجموعه")  
+Reply_Status(msg,result.id_,"reply","• تم ترقيته مميز للمجموعة")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -3475,7 +3475,7 @@ send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لا�
 return false
 end
 database:sadd(bot_id.."yousef:Special:User"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم ترقيته مميز للمجموعه")  
+Reply_Status(msg,userid,"reply","• تم ترقيته مميز للمجموعة")  
 return false
 end
 
@@ -3717,7 +3717,7 @@ return false
 end
 database:sadd(bot_id.."yousef:Ban:User"..msg.chat_id_, result.sender_user_id_)
 Kick_Group(result.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم حظره من المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","• تم حظره من المجموعة")  
 end,nil)   
 end
 end
@@ -3795,7 +3795,7 @@ send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
@@ -3808,7 +3808,7 @@ return false
 end
 database:sadd(bot_id.."yousef:Ban:User"..msg.chat_id_, result.id_)
 Kick_Group(msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم حظره من المجموعه")  
+Reply_Status(msg,result.id_,"reply","• تم حظره من المجموعة")  
 end,nil)   
 end
 else
@@ -3860,7 +3860,7 @@ return false
 end
 database:sadd(bot_id.."yousef:Ban:User"..msg.chat_id_, userid)
 Kick_Group(msg.chat_id_, userid)  
-Reply_Status(msg,userid,"reply","• تم حظره من المجموعه")  
+Reply_Status(msg,userid,"reply","• تم حظره من المجموعة")  
 end,nil)   
 end
 return false
@@ -4000,7 +4000,7 @@ send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر
 return false 
 end     
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 database:sadd(bot_id.."yousef:Muted:User"..msg.chat_id_, result.id_)
@@ -4134,7 +4134,7 @@ if Rank_Checking(result.sender_user_id_, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(result.sender_user_id_,msg.chat_id_).." )")
 else
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم تقييده في المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","• تم تقييده في المجموعة")  
 end
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_yousef, nil)
@@ -4155,7 +4155,7 @@ local username = text:match("^تقيد @(.*)$")
 function Function_yousef(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 if Rank_Checking(result.id_, msg.chat_id_) then
@@ -4163,7 +4163,7 @@ send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر
 return false 
 end      
 https.request("https://api.telegram.org/bot"..token.."/restrictChatMember?chat_id="..msg.chat_id_.."&user_id="..result.id_)
-Reply_Status(msg,result.id_,"reply","• تم تقييده في المجموعه")  
+Reply_Status(msg,result.id_,"reply","• تم تقييده في المجموعة")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -4187,7 +4187,7 @@ if Rank_Checking(userid, msg.chat_id_) then
 send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر او كتم او تقييد ( "..Get_Rank(userid,msg.chat_id_).." )")
 else
 https.request("https://api.telegram.org/bot" .. token .. "/restrictChatMember?chat_id=" .. msg.chat_id_ .. "&user_id=" ..userid)
-Reply_Status(msg,userid,"reply","• تم تقييده في المجموعه")  
+Reply_Status(msg,userid,"reply","• تم تقييده في المجموعة")  
 end
 return false
 end
@@ -4305,7 +4305,7 @@ send(msg.chat_id_, msg.id_, "\n• عذرا لا تستطيع طرد او حظر
 else
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = result.id_, status_ = { ID = "ChatMemberStatusKicked" },},function(arg,data) 
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 if (data and data.code_ and data.code_ == 400 and data.message_ == "CHAT_ADMIN_REQUIRED") then 
@@ -4471,7 +4471,7 @@ end
 function start_function(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_," •  عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_," •  عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 usertext = '\n •  العضو↺ ['..result.title_..'](t.me/'..(username or 'S0DRG')..')'
@@ -4699,7 +4699,7 @@ database:del(bot_id.."yousef:allM"..msg.chat_id_)
 end
 end
 if #list == 0 then
-t = "• لا يوجد ميديا في المجموعه"
+t = "• لا يوجد ميديا في المجموعة"
 end
 send(msg.chat_id_, msg.id_, t)
 end
@@ -4712,11 +4712,11 @@ l = "• عدد الميديا الموجود هو "..k
 end
 end
 if #num == 0 then
-l = "• لا يوجد ميديا في المجموعه"
+l = "• لا يوجد ميديا في المجموعة"
 end
 send(msg.chat_id_, msg.id_, l)
 end
-if text and text:match("^ضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^وضع صوره") and Addictive(msg) and msg.reply_to_message_id_ == 0 then  
+if text and text:match("^ضع صورة") and Addictive(msg) and msg.reply_to_message_id_ == 0 or text and text:match("^وضع صورة") and Addictive(msg) and msg.reply_to_message_id_ == 0 then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -4727,10 +4727,10 @@ end
 return false
 end
 database:set(bot_id.."yousef:Change:Chat:Photo"..msg.chat_id_..":"..msg.sender_user_id_,true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي الصوره") 
+send(msg.chat_id_, msg.id_,"• ارسل لي الصورة") 
 return false
 end
-if text == "حذف الصوره" or text == "مسح الصوره" then 
+if text == "حذف الصورة" or text == "مسح الصورة" then 
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -4742,7 +4742,7 @@ return false
 end
 if Addictive(msg) then
 https.request("https://api.telegram.org/bot"..token.."/deleteChatPhoto?chat_id="..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"• تم ازالة صورة المجموعه") 
+send(msg.chat_id_, msg.id_,"• تم ازالة صورة المجموعة") 
 end
 return false  
 end
@@ -4793,7 +4793,7 @@ end
 if database:get(bot_id.."yousef:Get:Welcome:Group"..msg.chat_id_)   then 
 Welcome = database:get(bot_id.."yousef:Get:Welcome:Group"..msg.chat_id_)  
 else 
-Welcome = "• لم يتم تعيين ترحيب للمجموعه"
+Welcome = "• لم يتم تعيين ترحيب للمجموعة"
 end 
 send(msg.chat_id_, msg.id_,"["..Welcome.."]") 
 return false  
@@ -4809,7 +4809,7 @@ end
 return false
 end
 database:set(bot_id.."yousef:Chek:Welcome"..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,"• تم تفعيل ترحيب المجموعه") 
+send(msg.chat_id_, msg.id_,"• تم تفعيل ترحيب المجموعة") 
 return false  
 end
 if text == "تعطيل الترحيب" and Addictive(msg) then  
@@ -4823,7 +4823,7 @@ end
 return false
 end
 database:del(bot_id.."yousef:Chek:Welcome"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"• تم تعطيل ترحيب المجموعه") 
+send(msg.chat_id_, msg.id_,"• تم تعطيل ترحيب المجموعة") 
 return false  
 end
 if text == "مسح الترحيب" or text == "حذف الترحيب" then 
@@ -4838,7 +4838,7 @@ return false
 end
 if Addictive(msg) then
 database:del(bot_id.."yousef:Get:Welcome:Group"..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,"• تم ازالة ترحيب المجموعه") 
+send(msg.chat_id_, msg.id_,"• تم ازالة ترحيب المجموعة") 
 end
 return false  
 end
@@ -4893,7 +4893,7 @@ end
 send(msg.chat_id_, msg.id_,"• تم مسح قائمه المنع")  
 end
 if text and text == "منع" and msg.reply_to_message_id_ == 0 and Addictive(msg) then       
-send(msg.chat_id_, msg.id_,"• الان ارسل { كلمه،صوره،ملصق،متحركه } لمنعه من المجموعه")  
+send(msg.chat_id_, msg.id_,"• الان ارسل { كلمه،صورة،ملصق،متحركه } لمنعه من المجموعة")  
 database:set(bot_id.."yousef:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"rep")  
 return false  
 end    
@@ -4927,7 +4927,7 @@ end
 if msg.content_.ID == 'MessagePhoto' then    
 local tsssst = database:get(bot_id.."yousef:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if tsssst == "rep" then   
-send(msg.chat_id_, msg.id_,"• تم منع الصوره بنجاح")  
+send(msg.chat_id_, msg.id_,"• تم منع الصورة بنجاح")  
 database:del(bot_id.."yousef:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 database:sadd(bot_id.."yousef:List:Filter:Photo"..msg.chat_id_,msg.content_.photo_.sizes_[1].photo_.persistent_id_)  
 return false 
@@ -4943,7 +4943,7 @@ send(msg.chat_id_, msg.id_,'• عذࢪا عليڪ الاشتࢪاڪ في قنا
 end
 return false
 end
-send(msg.chat_id_, msg.id_,"• الان ارسل { كلمه،صوره،ملصق،متحركه } ممنوع لالغاء منعه")  
+send(msg.chat_id_, msg.id_,"• الان ارسل { كلمه،صورة،ملصق،متحركه } ممنوع لالغاء منعه")  
 database:set(bot_id.."yousef:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_,"reppp")  
 return false 
 end
@@ -4977,7 +4977,7 @@ end
 if msg.content_.ID == 'MessagePhoto' then    
 local hoto = database:get(bot_id.."yousef:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 if hoto and hoto == "reppp" then   
-send(msg.chat_id_, msg.id_,"• تم الغاء منع الصوره بنجاح ")  
+send(msg.chat_id_, msg.id_,"• تم الغاء منع الصورة بنجاح ")  
 database:del(bot_id.."yousef:Add:Filter:Rp1"..msg.sender_user_id_..msg.chat_id_)  
 database:srem(bot_id.."yousef:List:Filter:Photo"..msg.content_.photo_.sizes_[1].photo_.persistent_id_)  
 return false
@@ -5007,7 +5007,7 @@ end
 c = c + 1
 end     
 if (c - x) == 0 then
-send(msg.chat_id_, msg.id_, "• لا توجد بوتات في المجموعه")
+send(msg.chat_id_, msg.id_, "• لا توجد بوتات في المجموعة")
 else
 local t = "• عدد البوتات هنا >> {"..c.."}\n• عدد البوتات التي هي ادمن >> {"..x.."}\n• تم طرد >> {"..(c - x).."} من البوتات"
 send(msg.chat_id_, msg.id_,t) 
@@ -5041,7 +5041,7 @@ tr = " {✯}"
 end
 text = text..">> [@"..ta.username_.."]"..tr.."\n"
 if #admins == 0 then
-send(msg.chat_id_, msg.id_, "• لا توجد بوتات في المجموعه")
+send(msg.chat_id_, msg.id_, "• لا توجد بوتات في المجموعة")
 return false 
 end
 if #admins == i then 
@@ -5061,7 +5061,7 @@ database:del(bot_id.."yousef:Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_us
 return false  
 end 
 database:set(bot_id.."yousef:Set:Rules:Group" .. msg.chat_id_,text) 
-send(msg.chat_id_, msg.id_,"• تم حفظ قوانين المجموعه") 
+send(msg.chat_id_, msg.id_,"• تم حفظ قوانين المجموعة") 
 database:del(bot_id.."yousef:Set:Rules:" .. msg.chat_id_ .. ":" .. msg.sender_user_id_)
 end  
 
@@ -5091,7 +5091,7 @@ end
 return false
 end
 if Addictive(msg) then
-send(msg.chat_id_, msg.id_,"• تم ازالة قوانين المجموعه")  
+send(msg.chat_id_, msg.id_,"• تم ازالة قوانين المجموعة")  
 database:del(bot_id.."yousef:Set:Rules:Group"..msg.chat_id_) 
 end
 end
@@ -5170,11 +5170,11 @@ database:set(bot_id.."yousef:Set:Cmd:Group:New1"..msg.chat_id_..":من","رفع 
 database:sadd(bot_id.."yousef:List:Cmd:Group:New"..msg.chat_id_,"من")
 database:set(bot_id.."yousef:Set:Cmd:Group:New1"..msg.chat_id_..":اس","رفع منشئ اساسي")
 database:sadd(bot_id.."yousef:List:Cmd:Group:New"..msg.chat_id_,"اس")
-database:set(bot_id.."yousef:Set:Cmd:Group:New1"..msg.chat_id_..":تعط","تعطيل الايدي بالصوره")
+database:set(bot_id.."yousef:Set:Cmd:Group:New1"..msg.chat_id_..":تعط","تعطيل الايدي بالصورة")
 database:sadd(bot_id.."yousef:List:Cmd:Group:New"..msg.chat_id_,"تعط")
-database:set(bot_id.."yousef:Set:Cmd:Group:New1"..msg.chat_id_..":تفع","تفعيل الايدي بالصوره")
+database:set(bot_id.."yousef:Set:Cmd:Group:New1"..msg.chat_id_..":تفع","تفعيل الايدي بالصورة")
 database:sadd(bot_id.."yousef:List:Cmd:Group:New"..msg.chat_id_,"تفع")
-send(msg.chat_id_, msg.id_,"• تم ترتيب الاوامر بالشكل التالي ~\n- ايدي - ا .\n- مميز - م .\n- ادمن - اد .\n- مدير - مد . \n- منشى - من . \n- المنشئ الاساسي - اس  . \n- تعطيل الايدي بالصوره - تعط .\n- تفعيل الايدي بالصوره - تفع .")  
+send(msg.chat_id_, msg.id_,"• تم ترتيب الاوامر بالشكل التالي ~\n- ايدي - ا .\n- مميز - م .\n- ادمن - اد .\n- مدير - مد . \n- منشى - من . \n- المنشئ الاساسي - اس  . \n- تعطيل الايدي بالصورة - تعط .\n- تفعيل الايدي بالصورة - تفع .")  
 end
 if text == "اضف امر" and Constructor(msg) then
 if AddChannel(msg.sender_user_id_) == false then
@@ -5222,7 +5222,7 @@ return false
 end
 function Function_yousef(extra, result, success)
 database:sadd(bot_id.."yousef:MN:TF"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته منظف للمجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","• تم ترقيته منظف للمجموعة")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_yousef, nil)
 return false
@@ -5241,11 +5241,11 @@ local username = text:match("^رفع منظف @(.*)$")
 function Function_yousef(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"• عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 database:sadd(bot_id.."yousef:MN:TF"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم ترقيته منظف للمجموعه")  
+Reply_Status(msg,result.id_,"reply","• تم ترقيته منظف للمجموعة")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -5269,7 +5269,7 @@ send(msg.chat_id_, msg.id_,'• لا تستطيع رفع احد وذالك لا�
 return false
 end
 database:sadd(bot_id.."yousef:MN:TF"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم ترقيته منظف للمجموعه")  
+Reply_Status(msg,userid,"reply","• تم ترقيته منظف للمجموعة")  
 return false
 end
 if text == ("تنزيل منظف") and tonumber(msg.reply_to_message_id_) ~= 0 and BasicConstructor(msg) then  
@@ -5284,7 +5284,7 @@ return false
 end
 function Function_yousef(extra, result, success)
 database:srem(bot_id.."yousef:MN:TF"..msg.chat_id_, result.sender_user_id_)
-Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من منظفيه المجموعه")  
+Reply_Status(msg,result.sender_user_id_,"reply","• تم تنزيله من منظفيه المجموعة")  
 end
 tdcli_function ({ID = "GetMessage",chat_id_ = msg.chat_id_,message_id_ = tonumber(msg.reply_to_message_id_)}, Function_yousef, nil)
 return false
@@ -5303,7 +5303,7 @@ local username = text:match("^تنزيل منظف @(.*)$")
 function Function_yousef(extra, result, success)
 if result.id_ then
 database:srem(bot_id.."yousef:MN:TF"..msg.chat_id_, result.id_)
-Reply_Status(msg,result.id_,"reply","• تم تنزيله من منظفيه المجموعه")  
+Reply_Status(msg,result.id_,"reply","• تم تنزيله من منظفيه المجموعة")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد حساب بهاذا المعرف")
 end
@@ -5323,7 +5323,7 @@ return false
 end
 local userid = text:match("^تنزيل منظف (%d+)$")
 database:srem(bot_id.."yousef:MN:TF"..msg.chat_id_, userid)
-Reply_Status(msg,userid,"reply","• تم تنزيله من منظفيه المجموعه")  
+Reply_Status(msg,userid,"reply","• تم تنزيله من منظفيه المجموعة")  
 return false
 end
 
@@ -5527,7 +5527,7 @@ db = "ملصق•"
 elseif database:get(bot_id.."yousef:Add:Rd:Manager:Text"..v..msg.chat_id_) then
 db = "رساله ✉"
 elseif database:get(bot_id.."yousef:Add:Rd:Manager:Photo"..v..msg.chat_id_) then
-db = "صوره•"
+db = "صورة•"
 elseif database:get(bot_id.."yousef:Add:Rd:Manager:Video"..v..msg.chat_id_) then
 db = "فيديو 📹"
 elseif database:get(bot_id.."yousef:Add:Rd:Manager:File"..v..msg.chat_id_) then
@@ -5740,7 +5740,7 @@ db = "ملصق•"
 elseif database:get(bot_id.."yousef:Add:Rd:Sudo:Text"..v) then
 db = "رساله ✉"
 elseif database:get(bot_id.."yousef:Add:Rd:Sudo:Photo"..v) then
-db = "صوره•"
+db = "صورة•"
 elseif database:get(bot_id.."yousef:Add:Rd:Sudo:Video"..v) then
 db = "فيديو 📹"
 elseif database:get(bot_id.."yousef:Add:Rd:Sudo:File"..v) then
@@ -5939,7 +5939,7 @@ local username = text:match("^تنزيل الكل @(.*)$")
 function Function_yousef(extra, result, success)
 if result.id_ then
 if (result and result.type_ and result.type_.ID == "ChannelChatInfo") then
-send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصوره صحيحه !")   
+send(msg.chat_id_,msg.id_,"💢┇عذرا عزيزي المستخدم هاذا معرف قناة يرجى استخدام الامر بصورة صحيحه !")   
 return false 
 end      
 if tonumber(SUDO) == tonumber(result.id_) then
@@ -6137,7 +6137,7 @@ local taha = "• عدد الادمنيه : "..data.administrator_count_..
 "\n\n• عدد المطرودين : "..data.kicked_count_..
 "\n\n• عدد الاعضاء : "..data.member_count_..
 "\n\n• عدد رسائل القروب : "..(msg.id_/2097152/0.5)..
-"\n\n• اسم المجموعه : ["..ta.title_.."]"
+"\n\n• اسم المجموعة : ["..ta.title_.."]"
 send(msg.chat_id_, msg.id_, taha) 
 end,nil)
 end,nil)
@@ -6167,11 +6167,11 @@ send(msg.chat_id_, msg.id_,"• البوت ليس ادمن يرجى ترقيتي
 return false  
 end
 if data and data.code_ and data.code_ == 400 and data.message_ == "USER_ADMIN_INVALID" then 
-send(msg.chat_id_, msg.id_,"• عذرا لا استطيع طرد ادمنية المجموعه") 
+send(msg.chat_id_, msg.id_,"• عذرا لا استطيع طرد ادمنية المجموعة") 
 return false  
 end
 if data and data.ID and data.ID == "Ok" then
-send(msg.chat_id_, msg.id_,"• تم طردك من المجموعه ") 
+send(msg.chat_id_, msg.id_,"• تم طردك من المجموعة ") 
 tdcli_function ({ ID = "ChangeChatMemberStatus", chat_id_ = msg.chat_id_, user_id_ = msg.sender_user_id_, status_ = { ID = "ChatMemberStatusLeft" },},function(arg,ban) end,nil)   
 return false
 end
@@ -6378,9 +6378,9 @@ send(msg.chat_id_,msg.id_,"• البوت ليس ادمن يرجى ترقيتي 
 return false  
 end 
 if data.message_ == "CHAT_ADMIN_REQUIRED" then
-send(msg.chat_id_,msg.id_,"• ليست لدي صلاحية تغير اسم المجموعه")  
+send(msg.chat_id_,msg.id_,"• ليست لدي صلاحية تغير اسم المجموعة")  
 else
-send(msg.chat_id_,msg.id_,"•تم تغيير اسم المجموعه الى {["..Name.."]}")  
+send(msg.chat_id_,msg.id_,"•تم تغيير اسم المجموعة الى {["..Name.."]}")  
 end
 end,nil) 
 end
@@ -6416,7 +6416,7 @@ end
 if num2 == 0 then
 send(msg.chat_id_, msg.id_,"• لا توجد ادمنية ليتم رفعهم") 
 else
-send(msg.chat_id_, msg.id_,"• تمت ترقية { "..num2.." } من ادمنية المجموعه") 
+send(msg.chat_id_, msg.id_,"• تمت ترقية { "..num2.." } من ادمنية المجموعة") 
 end
 end,nil)   
 end
@@ -6432,7 +6432,7 @@ send(msg.chat_id_, msg.id_,"• حساب المنشئ محذوف")
 return false  
 end
 local UserName = (b.username_ or "Yousef_Labban")
-send(msg.chat_id_, msg.id_,"• منشئ المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
+send(msg.chat_id_, msg.id_,"• منشئ المجموعة ~ ["..b.first_name_.."](T.me/"..UserName..")")  
 end,nil)   
 end
 end
@@ -6452,7 +6452,7 @@ send(msg.chat_id_, msg.id_,"• حساب المنشئ محذوف")
 return false  
 end
 local UserName = (b.username_ or "Yousef_Labban")
-send(msg.chat_id_, msg.id_,"• تم ترقية منشئ المجموعه ~ ["..b.first_name_.."](T.me/"..UserName..")")  
+send(msg.chat_id_, msg.id_,"• تم ترقية منشئ المجموعة ~ ["..b.first_name_.."](T.me/"..UserName..")")  
 database:sadd(bot_id.."yousef:Basic:Constructor"..msg.chat_id_,b.id_)
 end,nil)   
 end,nil)   
@@ -6478,13 +6478,13 @@ function Delete_Message(chat,id)
     Delete_Message(msg.chat_id_,{[0]=Message})
     Message = Message - 1048576
     end
-    send(msg.chat_id_, msg.id_,'⇽ تم ازالة *- '..Msg_Num..'* رساله من المجموعه')  
+    send(msg.chat_id_, msg.id_,'⇽ تم ازالة *- '..Msg_Num..'* رساله من المجموعة')  
     end
 
 if text == "غادر" then 
 if DevBot(msg) and not database:get(bot_id.."yousef:Left:Bot"..msg.chat_id_) then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=msg.chat_id_,user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
-send(msg.chat_id_, msg.id_,"• تم مغادرة المجموعه") 
+send(msg.chat_id_, msg.id_,"• تم مغادرة المجموعة") 
 database:srem(bot_id.."yousef:Chek:Groups",msg.chat_id_)  
 end
 return false  
@@ -6493,8 +6493,8 @@ if text and text:match("^غادر (-%d+)$") then
 local GP_ID = {string.match(text, "^(غادر) (-%d+)$")}
 if DevBot(msg) and not database:get(bot_id.."yousef:Left:Bot"..msg.chat_id_) then 
 tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_=GP_ID[2],user_id_=bot_id,status_={ID = "ChatMemberStatusLeft"},},function(e,g) end, nil) 
-send(msg.chat_id_, msg.id_,"• تم مغادرة المجموعه") 
-send(GP_ID[2], 0,"• تم مغادرة المجموعه بامر من مطور البوت") 
+send(msg.chat_id_, msg.id_,"• تم مغادرة المجموعة") 
+send(GP_ID[2], 0,"• تم مغادرة المجموعة بامر من مطور البوت") 
 database:srem(bot_id.."yousef:Chek:Groups",GP_ID[2])  
 return false 
 end
@@ -6682,7 +6682,7 @@ send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطو
 return false
 end
 database:setex(bot_id.."yousef:yousef:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n• للخروج ارسل الغاء ") 
+send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحركه, صورة, رساله }\n• للخروج ارسل الغاء ") 
 return false
 end 
 if text=="اذاعه" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
@@ -6691,7 +6691,7 @@ send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطو
 return false
 end
 database:setex(bot_id.."yousef:yousef:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n• للخروج ارسل الغاء ") 
+send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحركه, صورة, رساله }\n• للخروج ارسل الغاء ") 
 return false
 end  
 if text=="اذاعه بالتثبيت" and msg.reply_to_message_id_ == 0 and DevBot(msg) then 
@@ -6700,7 +6700,7 @@ send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطو
 return false
 end
 database:setex(bot_id.."yousef:yousef:Bc:Grops:Pin" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n• للخروج ارسل الغاء ") 
+send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحركه, صورة, رساله }\n• للخروج ارسل الغاء ") 
 return false
 end  
 if text=="اذاعه بالتوجيه" and msg.reply_to_message_id_ == 0  and DevBot(msg) then 
@@ -7024,7 +7024,7 @@ kickme = "✘"
 end
 Num_Flood = database:hget(bot_id.."yousef:flooding:settings:"..msg.chat_id_,"floodmax") or 0
 local text = 
-"*\n• ااعدادات المجموعه "..
+"*\n• ااعدادات المجموعة "..
 "\n  ━═━═━═━"..
 "\n• علامة ال {✓} تعني مفعل"..
 "\n• علامة ال {✘} تعني معطل"..
@@ -7114,7 +7114,7 @@ end
 database:set(bot_id..'yousef:Lock:ID:Bot'..msg.chat_id_,true) 
 send(msg.chat_id_, msg.id_,'• تم تعطيل الايدي') 
 end
-if text == 'تفعيل الايدي بالصوره' and Owner(msg) then   
+if text == 'تفعيل الايدي بالصورة' and Owner(msg) then   
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -7125,9 +7125,9 @@ end
 return false
 end
 database:del(bot_id..'yousef:Lock:ID:Bot:Photo'..msg.chat_id_) 
-send(msg.chat_id_, msg.id_,'• تم تفعيل الايدي بالصوره') 
+send(msg.chat_id_, msg.id_,'• تم تفعيل الايدي بالصورة') 
 end
-if text == 'تعطيل الايدي بالصوره' and Owner(msg) then  
+if text == 'تعطيل الايدي بالصورة' and Owner(msg) then  
 if AddChannel(msg.sender_user_id_) == false then
 local textchuser = database:get(bot_id..'text:ch:user')
 if textchuser then
@@ -7138,7 +7138,7 @@ end
 return false
 end
 database:set(bot_id..'yousef:Lock:ID:Bot:Photo'..msg.chat_id_,true) 
-send(msg.chat_id_, msg.id_,'• تم تعطيل الايدي بالصوره') 
+send(msg.chat_id_, msg.id_,'• تم تعطيل الايدي بالصورة') 
 end
 if text == 'تعين الايدي' and Owner(msg) then
 if AddChannel(msg.sender_user_id_) == false then
@@ -7163,7 +7163,7 @@ local Text= [[
 - `#edit` > عدد السحكات
 - `#game` > المجوهرات
 - `#AddMem` > عدد الجهات
-- `#Description` > تعليق الصوره
+- `#Description` > تعليق الصورة
 ]]
 send(msg.chat_id_, msg.id_,Text)
 return false  
@@ -7319,7 +7319,7 @@ else
 sendPhoto(msg.chat_id_,msg.id_,taha.photos_[0].sizes_[1].photo_.persistent_id_,'• '..Description..'\n• ايديك ↺ '..Id..'\n• معرفك ↺ '..UserName_User..'\n• رتبتك ↺ '..Status_Gps..'\n• رسائلك ↺ '..NumMsg..'\n• السحكات ↺ '..message_edit..' \n• تتفاعلك ↺ '..TotalMsg..'\n• مجوهراتك ↺ '..Num_Games)
 end
 else
-send(msg.chat_id_, msg.id_,'• ليس لديك صوره \n'..'\n*• ايديك ↺ '..Id..'\n• معرفك ↺* ['..UserName_User..']*\n• رتبتك ↺ '..Status_Gps..'\n• رسائلك ↺ '..NumMsg..'\n• السحكات ↺ '..message_edit..' \n• تتفاعلك ↺ '..TotalMsg..'\n• مجوهراتك ↺ '..Num_Games..'*') 
+send(msg.chat_id_, msg.id_,'• ليس لديك صورة \n'..'\n*• ايديك ↺ '..Id..'\n• معرفك ↺* ['..UserName_User..']*\n• رتبتك ↺ '..Status_Gps..'\n• رسائلك ↺ '..NumMsg..'\n• السحكات ↺ '..message_edit..' \n• تتفاعلك ↺ '..TotalMsg..'\n• مجوهراتك ↺ '..Num_Games..'*') 
 end
 else
 if get_id then
@@ -8156,9 +8156,9 @@ end
 if w == 0 then
 storm = ''
 else
-storm = '\n• تم ازالة ~'..w..' مجموعه لان البوت عضو'
+storm = '\n• تم ازالة ~'..w..' مجموعة لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*• عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n• اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*• عدد المجموعات الان ~ '..#group..' مجموعة '..storm..''..taha..'\n• اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
@@ -8399,7 +8399,7 @@ end
 if #list == 0 then
 t = "• ماكو منششئين يشوفولك جاره"
 end
-Reply_Status(msg,msg.sender_user_id_,"reply","• قام بنشر صوره اباحيه\n"..t)  
+Reply_Status(msg,msg.sender_user_id_,"reply","• قام بنشر صورة اباحيه\n"..t)  
 DeleteMessage(msg.chat_id_,{[0] = tonumber(msg.id_),msg.id_})   
 end   
 end
@@ -8436,7 +8436,7 @@ end
 tdcli_function ({ ID = "GetMessage", chat_id_ = msg.chat_id_, message_id_ = tonumber(msg.reply_to_message_id_) }, by_reply, nil)
 end
 end
-if text == 'صوره' then   
+if text == 'صورة' then   
 if tonumber(msg.reply_to_message_id_) > 0 then
 function by_reply(extra, result, success)   
 if result.content_.sticker_ then 
@@ -8691,7 +8691,7 @@ end
 return false
 end
 Text = [[
-• اوامر حماية المجموعه
+• اوامر حماية المجموعة
   ━═━═━═━
 • قفل/فتح + الاوامر الادناه 
 • قفل/فتح + الامر بالتقيد• بالطرد• بالكتم
@@ -8778,7 +8778,7 @@ Text = [[
   ━═━═━═━
 • وضع اسم
 • وضع رابط
-• وضع صوره
+• وضع صورة
 • وضع وصف
 • وضع قوانين
 • وضع ترحيب
@@ -8790,7 +8790,7 @@ Text = [[
 • مسح المطرودين
 • مسح القوانين
 • مسح البوتات
-• مسح الصوره
+• مسح الصورة
 • مسح الصلاحيات
 • مسح الرابط
   ━═━═━═━
@@ -8839,7 +8839,7 @@ Text = [[
 • تفعيل/تعطيل ردود المطور
 • تفعيل/تعطيل الحظر/الطرد
 • تفعيل/تعطيل اللعبه/الالعاب
-• تفعيل/تعطيل الايدي بالصوره
+• تفعيل/تعطيل الايدي بالصورة
 • تفعيل/تعطيل اوامر التحشيش
 • تفعيل/تعطيل الرابط/جلب الرابط
   ━═━═━═━
@@ -8963,15 +8963,15 @@ return false
 end
 tdcli_function ({ ID = "GetChannelFull", channel_id_ = msg.chat_id_:gsub("-100","")}, function(arg,data)  
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'yousef:Num:Add:Bot') or 0) and not Devyousef(msg) then
-send(msg.chat_id_, msg.id_,'• عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'yousef:Num:Add:Bot') or 0)..'* عضو')
+send(msg.chat_id_, msg.id_,'• عدد اعضاء المجموعة اقل من *~ {'..(database:get(bot_id..'yousef:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if database:sismember(bot_id..'yousef:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'• المجموعه مفعله سابقا ')
+send(msg.chat_id_, msg.id_,'• المجموعة مفعله سابقا ')
 else
-Reply_Status(msg,result.id_,'reply_Add','• تم تفعيل المجموعه ~ '..chat.title_..'')
+Reply_Status(msg,result.id_,'reply_Add','• تم تفعيل المجموعة ~ '..chat.title_..'')
 database:sadd(bot_id..'yousef:Chek:Groups',msg.chat_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
@@ -8989,11 +8989,11 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '• تم تفعيل مجموعه جديده\n'..
+Text = '• تم تفعيل مجموعة جديده\n'..
 '\n• بواسطة ~ '..Name..''..
-'\n• ايدي المجموعه ~ `'..IdChat..'`'..
-'\n• عدد اعضاء المجموعه *~ '..NumMember..'*'..
-'\n• اسم المجموعه ~ ['..NameChat..']'..
+'\n• ايدي المجموعة ~ `'..IdChat..'`'..
+'\n• عدد اعضاء المجموعة *~ '..NumMember..'*'..
+'\n• اسم المجموعة ~ ['..NameChat..']'..
 '\n• الرابط ~ ['..LinkGp..']'
 if not Devyousef(msg) then
 sendText(Id_Sudo,Text,0,'md')
@@ -9016,9 +9016,9 @@ end
 tdcli_function ({ID = "GetUser",user_id_ = msg.sender_user_id_},function(extra,result,success)
 tdcli_function({ID ="GetChat",chat_id_=msg.chat_id_},function(arg,chat)  
 if not database:sismember(bot_id..'yousef:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'• المجموعه معطله سابقا ')
+send(msg.chat_id_, msg.id_,'• المجموعة معطله سابقا ')
 else
-Reply_Status(msg,result.id_,'reply_Add','• تم تعطيل المجموعه ~ '..chat.title_..'')
+Reply_Status(msg,result.id_,'reply_Add','• تم تعطيل المجموعة ~ '..chat.title_..'')
 database:srem(bot_id..'yousef:Chek:Groups',msg.chat_id_)  
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
 local NameChat = chat.title_
@@ -9036,10 +9036,10 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '• تم تعطيل مجموعه جديده\n'..
+Text = '• تم تعطيل مجموعة جديده\n'..
 '\n• بواسطة ~ '..Name..''..
-'\n• ايدي المجموعه ~ `'..IdChat..'`'..
-'\n• اسم المجموعه ~ ['..NameChat..']'..
+'\n• ايدي المجموعة ~ `'..IdChat..'`'..
+'\n• اسم المجموعة ~ ['..NameChat..']'..
 '\n• الرابط ~ ['..LinkGp..']'
 if not Devyousef(msg) then
 sendText(Id_Sudo,Text,0,'md')
@@ -9076,13 +9076,13 @@ else
 var= 'عضو'
 end
 if database:sismember(bot_id..'yousef:Chek:Groups',msg.chat_id_) then
-send(msg.chat_id_, msg.id_,'• المجموعه مفعله سابقا ')
+send(msg.chat_id_, msg.id_,'• المجموعة مفعله سابقا ')
 else
 if tonumber(data.member_count_) < tonumber(database:get(bot_id..'yousef:Num:Add:Bot') or 0) and not Devyousef(msg) then
-send(msg.chat_id_, msg.id_,'• عدد اعضاء المجموعه اقل من *~ {'..(database:get(bot_id..'yousef:Num:Add:Bot') or 0)..'* عضو')
+send(msg.chat_id_, msg.id_,'• عدد اعضاء المجموعة اقل من *~ {'..(database:get(bot_id..'yousef:Num:Add:Bot') or 0)..'* عضو')
 return false
 end
-Reply_Status(msg,result.id_,'reply_Add','• تم تفعيل المجموعه ~ '..chat.title_..'')
+Reply_Status(msg,result.id_,'reply_Add','• تم تفعيل المجموعة ~ '..chat.title_..'')
 database:sadd(bot_id..'yousef:Chek:Groups',msg.chat_id_)  
 database:sadd(bot_id..'yousef:Basic:Constructor'..msg.chat_id_, msg.sender_user_id_)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
@@ -9102,12 +9102,12 @@ LinkGp = linkgpp.result
 else
 LinkGp = 'لا يوجد'
 end
-Text = '• تم تفعيل مجموعه جديده\n'..
+Text = '• تم تفعيل مجموعة جديده\n'..
 '\n• بواسطة ~ '..Name..''..
-'\n• موقعه في المجموعه ~ '..AddPy..'' ..
-'\n• ايدي المجموعه ~ `'..IdChat..'`'..
-'\n• عدد اعضاء المجموعه *~ '..NumMember..'*'..
-'\n• اسم المجموعه ~ ['..NameChat..']'..
+'\n• موقعه في المجموعة ~ '..AddPy..'' ..
+'\n• ايدي المجموعة ~ `'..IdChat..'`'..
+'\n• عدد اعضاء المجموعة *~ '..NumMember..'*'..
+'\n• اسم المجموعة ~ ['..NameChat..']'..
 '\n• الرابط ~ ['..LinkGp..']'
 if not Devyousef(msg) then
 sendText(Id_Sudo,Text,0,'md')
@@ -9280,7 +9280,7 @@ sendSticker(id_user, msg.id_, msg.content_.sticker_.sticker_.persistent_id_)
 Text = '• تمت ارسال الملصق اليه .. '
 elseif msg.content_.ID == 'MessagePhoto' then    
 sendPhoto(id_user, msg.id_,msg.content_.photo_.sizes_[0].photo_.persistent_id_,(msg.content_.caption_ or ''))    
-Text = '• تمت ارسال الصوره اليه .. '
+Text = '• تمت ارسال الصورة اليه .. '
 elseif msg.content_.ID == 'MessageAnimation' then    
 sendDocument(id_user, msg.id_, msg.content_.animation_.animation_.persistent_id_)    
 Text = '• تمت ارسال المتحركه اليه .. '
@@ -9370,9 +9370,9 @@ end
 if w == 0 then
 storm = ''
 else
-storm = '\n• تم ازالة ~'..w..' مجموعه لان البوت عضو'
+storm = '\n• تم ازالة ~'..w..' مجموعة لان البوت عضو'
 end
-send(msg.chat_id_, msg.id_,'*• عدد المجموعات الان ~ '..#group..' مجموعه '..storm..''..taha..'\n• اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
+send(msg.chat_id_, msg.id_,'*• عدد المجموعات الان ~ '..#group..' مجموعة '..storm..''..taha..'\n• اصبح عدد المجموعات الان ~ '..sendok..' مجموعات*\n')   
 end
 end
 end,nil)
@@ -9418,7 +9418,7 @@ send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطو
 return false
 end
 database:setex(bot_id.."yousef:yousef:Bc:Pv" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n• للخروج ارسل الغاء ") 
+send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحركه, صورة, رساله }\n• للخروج ارسل الغاء ") 
 return false
 end 
 
@@ -9428,7 +9428,7 @@ send(msg.chat_id_, msg.id_,"• الاذاعه معطله من قبل المطو
 return false
 end
 database:setex(bot_id.."yousef:yousef:Bc:Grops" .. msg.chat_id_ .. ":" .. msg.sender_user_id_, 600, true) 
-send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحركه, صوره, رساله }\n• للخروج ارسل الغاء ") 
+send(msg.chat_id_, msg.id_,"• ارسل لي سواء ~ { ملصق, متحركه, صورة, رساله }\n• للخروج ارسل الغاء ") 
 return false
 end  
 if text=="اذاعه بالتوجيه•" and msg.reply_to_message_id_ == 0  then
@@ -9559,7 +9559,7 @@ if data and data.type_ and data.type_.ID and data.type_.ID == 'PrivateChatInfo' 
 send(msg.chat_id_, msg.id_, '• عذا لا يمكنك وضع معرف حسابات في الاشتراك ')
 return false  end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == true then
-send(msg.chat_id_, msg.id_,'• عذا لا يمكنك وضع معرف مجموعه بالاشتراك ')
+send(msg.chat_id_, msg.id_,'• عذا لا يمكنك وضع معرف مجموعة بالاشتراك ')
 return false  end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.is_supergroup_ == false then
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.ID and data.type_.channel_.status_.ID == 'ChatMemberStatusEditor' then
@@ -9962,7 +9962,7 @@ end
 elseif Text and Text:match('(.*)/help1') then
 if tonumber(Text:match('(.*)/help1')) == tonumber(data.sender_user_id_) then
 local Teext =[[
-• اوامر حماية المجموعه
+• اوامر حماية المجموعة
   ━═━═━═━
 • قفل/فتح + الاوامر الادناه 
 • قفل/فتح + الامر بالتقيد• بالطرد• بالكتم
@@ -10055,7 +10055,7 @@ local Teext =[[
   ━═━═━═━
 • وضع اسم
 • وضع رابط
-• وضع صوره
+• وضع صورة
 • وضع وصف
 • وضع قوانين
 • وضع ترحيب
@@ -10067,7 +10067,7 @@ local Teext =[[
 • مسح المطرودين
 • مسح القوانين
 • مسح البوتات
-• مسح الصوره
+• مسح الصورة
 • مسح الصلاحيات
 • مسح الرابط
   ━═━═━═━
@@ -10122,7 +10122,7 @@ local Teext =[[
 • تفعيل/تعطيل ردود المطور
 • تفعيل/تعطيل الحظر/الطرد
 • تفعيل/تعطيل اللعبه/الالعاب
-• تفعيل/تعطيل الايدي بالصوره
+• تفعيل/تعطيل الايدي بالصورة
 • تفعيل/تعطيل اوامر التحشيش
 • تفعيل/تعطيل الرابط/جلب الرابط
   ━═━═━═━
@@ -10455,7 +10455,7 @@ if NewCmmd then
 database:del(bot_id.."yousef:Set:Cmd:Group:New1"..msg.chat_id_..":"..text)
 database:del(bot_id.."yousef:Set:Cmd:Group:New"..msg.chat_id_)
 database:srem(bot_id.."yousef:List:Cmd:Group:New"..msg.chat_id_,text)
-send(msg.chat_id_, msg.id_,"• تم ازالة الامر من المجموعه")  
+send(msg.chat_id_, msg.id_,"• تم ازالة الامر من المجموعة")  
 else
 send(msg.chat_id_, msg.id_,"• لا يوجد امر بهاذا الاسم تاكد من الامر واعد المحاوله")  
 end
@@ -10599,7 +10599,7 @@ end
 if text then
 local yousef_Msg = database:sismember(bot_id.."yousef:List:Filter:text"..result.chat_id_,text) 
 if yousef_Msg then    
-Reply_Status(result,result.sender_user_id_,"reply","• الكلمه ممنوعه من المجموعه")  
+Reply_Status(result,result.sender_user_id_,"reply","• الكلمه ممنوعه من المجموعة")  
 DeleteMessage(result.chat_id_, {[0] = data.message_id_})     
 return false
 end
@@ -10607,7 +10607,7 @@ end
 if msg.content_.ID == 'MessageAnimation' then    
 local Animation_Msg = database:sismember(bot_id.."yousef:List:Filter:Animation"..result.chat_id_,result.content_.animation_.animation_.persistent_id_) 
 if Animation_Msg then    
-Reply_Status(result,result.sender_user_id_,"reply","• المتحركه ممنوعه من المجموعه")  
+Reply_Status(result,result.sender_user_id_,"reply","• المتحركه ممنوعه من المجموعة")  
 DeleteMessage(result.chat_id_, {[0] = data.message_id_})     
 return false
 end
@@ -10615,7 +10615,7 @@ end
 if msg.content_.ID == 'MessagePhoto' then    
 local Photo_Msg = database:sismember(bot_id.."yousef:List:Filter:Photo"..result.chat_id_,result.content_.photo_.sizes_[1].photo_.persistent_id_) 
 if Photo_Msg then    
-Reply_Status(result,result.sender_user_id_,"reply","• الصوره ممنوعه من المجموعه")  
+Reply_Status(result,result.sender_user_id_,"reply","• الصورة ممنوعه من المجموعة")  
 DeleteMessage(result.chat_id_, {[0] = data.message_id_})     
 return false
 end
@@ -10634,7 +10634,7 @@ end
 if msg.content_.ID == 'MessageSticker' then    
 local Sticker_Msg = database:sismember(bot_id.."yousef:List:Filter:Sticker"..result.chat_id_,result.content_.sticker_.sticker_.persistent_id_) 
 if Sticker_Msg then    
-Reply_Status(result,result.sender_user_id_,"reply","• الملصق ممنوع من المجموعه")  
+Reply_Status(result,result.sender_user_id_,"reply","• الملصق ممنوع من المجموعة")  
 DeleteMessage(result.chat_id_, {[0] = data.message_id_})     
 return false
 end
