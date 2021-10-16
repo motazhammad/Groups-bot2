@@ -1670,25 +1670,25 @@ return false
 end
 database:set(bot_id.."yousef:Lock:Link"..msg.chat_id_,"del")  
 Reply_Status(msg,msg.sender_user_id_,"lock","• تم قفـل الروابط
-. هذا يعني أن نشر الروابط ممنوع")  
+هذا يعني منع نشر الروابط")  
 return false
 end 
 if text == "قفل الروابط بالتقيد" and Addictive(msg) then
 database:set(bot_id.."yousef:Lock:Link"..msg.chat_id_,"ked")  
 Reply_Status(msg,msg.sender_user_id_,"lockkid","• تم قفـل الروابط
-. هذا يعني أن نشر الروابط ممنوع")  
+هذا يعني منع نشر الروابط")  
 return false
 end 
 if text == "قفل الروابط بالكتم" and Addictive(msg) then
 database:set(bot_id.."yousef:Lock:Link"..msg.chat_id_,"ktm")  
 Reply_Status(msg,msg.sender_user_id_,"lockktm","• تم قفـل الروابط
-. هذا يعني أن نشر الروابط ممنوع")  
+هذا يعني منع نشر الروابط")  
 return false
 end 
 if text == "قفل الروابط بالطرد" and Addictive(msg) then
 database:set(bot_id.."yousef:Lock:Link"..msg.chat_id_,"kick")  
 Reply_Status(msg,msg.sender_user_id_,"lockkick","• تم قفـل الروابط
-. هذا يعني أن نشر الروابط ممنوع")  
+هذا يعني منع نشر الروابط")  
 return false
 end 
 if text == "فتح الروابط" and Addictive(msg) then  
