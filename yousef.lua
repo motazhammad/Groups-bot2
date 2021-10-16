@@ -6521,7 +6521,7 @@ return false
 end
 Namebot = (database:get(bot_id.."yousef:Name:Bot") or "يوسف لبان")
 local namebot = {
-"خليك ثكيل حبي لضل كل شوي صايحلي ؟",
+"أقوم بوطيفتي على أحسن وجه لا تقلق .. ",
 " شتريد من "..Namebot,
 " دوختو "..Namebot,
 'لتلح عاد نطيتك عين؟',
