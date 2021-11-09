@@ -8182,23 +8182,23 @@ https.request("https://api.telegram.org/bot"..token..'/sendmessage?chat_id=' .. 
 end
 if text == 'تفعيل التاك' and Constructor(msg) then   
 if database:get(bot_id..'Cick:all'..msg.chat_id_) then
-Text = '• تم تفعيل امر @all'
+Text = '• تم تفعيل امر نداء'
 database:del(bot_id..'Cick:all'..msg.chat_id_)  
 else
-Text = '• بالتاكيد تم تفعيل امر @all'
+Text = '• بالتاكيد تم تفعيل امر نداء'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
 if text == 'تعطيل التاك' and Constructor(msg) then  
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 database:set(bot_id..'Cick:all'..msg.chat_id_,true)  
-Text = '\n• تم تعطيل امر @all'
+Text = '\n• تم تعطيل امر نداء'
 else
-Text = '\n• بالتاكيد تم تعطيل امر @all'
+Text = '\n• بالتاكيد تم تعطيل امر نداء'
 end
 send(msg.chat_id_, msg.id_,Text) 
 end
-if text == "@all" and Constructor(msg) then
+if text == "نداء" and Constructor(msg) then
 if not database:get(bot_id..'Cick:all'..msg.chat_id_) then
 if database:get(bot_id.."cccbcc:all:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
 return 
