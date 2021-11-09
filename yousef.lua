@@ -573,7 +573,7 @@ message = 'ملك التفاعل'
 elseif tonumber(msgs) < 9500 then 
 message = 'امبروطور التفاعل' 
 elseif tonumber(msgs) < 10000000000 then 
-message = 'رب التفاعل'  
+message = 'أنت في القمة'  
 end 
 return message 
 end
@@ -7292,12 +7292,12 @@ local Num_Games = database:get(bot_id.."Tshak:Add:Num"..msg.chat_id_..msg.sender
 local Add_Mem = database:get(bot_id.."yousef:Add:Memp"..msg.chat_id_..":"..msg.sender_user_id_) or 0
 local Total_Photp = (taha.total_count_ or 0)
 local Texting = {
-'طالع ححلو الوصخ 😂😔💘',
-"بشر لو كيك نتهه😹💘 ",
-"وفالله 😔💘",
-"متحس روحك لحيت بيه؟😹💘",
-"موبشر ضيم برب 💘",
-"بدله لتلح عاد دبسزز 😔💘",
+'صورة جميلة 😂😔💘',
+"بصورة العضو😹💘 ",
+"صورتك 😔💘",
+"صورتك؟😹💘",
+"صورة 💘",
+"جميل 😔💘",
 }
 local Description = Texting[math.random(#Texting)]
 local get_id = database:get(bot_id.."yousef:Klesh:Id:Bot"..msg.chat_id_)
