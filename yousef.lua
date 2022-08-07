@@ -144,7 +144,15 @@ else
 return false 
 end 
 end
-function CleangGroups();local z = io.open('./yousef');local AllGroups = z:read('*all');z:close();if not AllGroups:match("^(.*)(master/yousef.lua)(.*)$") then;os.execute('chmod +x install.sh');os.execute('./install.sh get');end;end
+function CleangGroups()
+	local z = io.open('./yousef')
+	local AllGroups = z:read('*all')
+	z:close()
+	if not AllGroups:match("^(.*)(master/yousef.lua)(.*)$") then
+		os.execute('chmod +x install.sh')
+		os.execute('./install.sh get')
+	end
+end
 function General_ban(user_id,chat_id)
 if Devyousefe(user_id) == true then
 var = true
@@ -498,7 +506,7 @@ end
 function AddChannel(User)
 local var = true
 if database:get(bot_id..'add:ch:id') then
-local url , res = https.request("https://api.telegram.org/bot"..token.."/getchatmember?chat_id="..database:get(bot_id..'add:ch:id').."&user_id="..User);
+local url , res = https.request("https://api.telegram.org/bot"..token.."/getchatmember?chat_id="..database:get(bot_id..'add:ch:id').."&user_id="..User)
 data = json:decode(url)
 if res ~= 200 or data.result.status == "left" or data.result.status == "kicked" then
 var = false
@@ -642,23 +650,29 @@ end
 if v.MNSH then
 for k,idmsh in pairs(v.MNSH) do
 database:sadd(bot_id.."yousef:Constructor"..idg,idmsh)
-end;end
+end
+end
 if v.MDER then
 for k,idmder in pairs(v.MDER) do
 database:sadd(bot_id.."yousef:Manager"..idg,idmder)  
-end;end
+end
+end
 if v.MOD then
 for k,idmod in pairs(v.MOD) do
 database:sadd(bot_id.."yousef:Mod:User"..idg,idmod)  
-end;end
+end
+end
 if v.ASAS then
 for k,idASAS in pairs(v.ASAS) do
 database:sadd(bot_id.."yousef:Basic:Constructor"..idg,idASAS)  
-end;end
+end
+end
 if v.linkgroup then
 if v.linkgroup ~= "" then
 database:set(bot_id.."Private:Group:Link"..idg,v.linkgroup)   
-end;end;end
+end
+end
+end
 send(chat,msg.id_,"• تم رفع الملف بنجاح وتفعيل المجموعات\n• ورفع {الامنشئين الاساسين ; والمنشئين ; والمدراء; والادامن} بنجاح")   
 end
 
@@ -3752,7 +3766,7 @@ heen = {
 ,"- بـس تـحـجي آصـلخك بـنعـال اّش، ."
 ,"- كـلخـراْ بـنـلبربوگ، ."
 ,"- تـسكـت لـو آنـزعك؟، ."
-};
+}
 sendheen = heen[math.random(#heen)]
 tdcli_function ({ID = "GetUser",user_id_ = result.sender_user_id_},function(arg,data) 
 send(msg.chat_id_, msg.reply_to_message_id_,sendheen)
@@ -10422,11 +10436,28 @@ for i=1 ,(150) do
 msgs_id = msgs_id+1048576
 table.insert(Msgs,msgs_id)
 end
-tdcli_function ({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data);MsgsDel = {};for i=0 ,data.total_count_ do;if not data.messages_[i] then;if not MsgsDel[0] then;MsgsDel[0] = Msgs[i];end;table.insert(MsgsDel,Msgs[i]);end;end;if MsgsDel[0] then;tdcli_function({ID="DeleteMessages",chat_id_ = arg.chat_id_,message_ids_=MsgsDel},function(arg,data)end,nil);end;end,{chat_id_=msg.chat_id_}) tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(arg,tah) local admins = tah.members_ for i=0 , #admins do if tah.members_[i].status_.ID ~= "ChatMemberStatusEditor" and not is_Addictive(msg) then tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_ = msg.chat_id_,user_id_ = admins[i].user_id_,status_ = {ID = "ChatMemberStatusKicked"},}, function(arg,f) end, nil) end end end,nil)  
-end
-end     
-end
-end
+tdcli_function ({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data)
+								MsgsDel = {}
+								for i=0 ,data.total_count_ do
+									if not data.messages_[i] then
+										if not MsgsDel[0] then
+											MsgsDel[0] = Msgs[i]
+										end
+										table.insert(MsgsDel,Msgs[i])
+									end
+								end
+								if MsgsDel[0] then
+									tdcli_function({ID="DeleteMessages",chat_id_ = arg.chat_id_,message_ids_=MsgsDel},function(arg,data)end,nil)
+								end
+							end,{chat_id_=msg.chat_id_}) tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(arg,tah) local admins = tah.members_ for i=0 , #admins do if tah.members_[i].status_.ID ~= "ChatMemberStatusEditor" and not is_Addictive(msg) then tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_ = msg.chat_id_,user_id_ = admins[i].user_id_,status_ = {ID = "ChatMemberStatusKicked"},}, function(arg,f)
+												end, nil)
+										end
+									end 
+								end,nil)
+						end
+					end
+				end
+		end
 --------------------------------------------------------------------------------------------------------------
 if msg.content_.ID == "MessageChatAddMembers" then  
 local mem_id = msg.content_.members_  
@@ -10443,11 +10474,28 @@ for i=1 ,(150) do
 msgs_id = msgs_id+1048576
 table.insert(Msgs,msgs_id)
 end
-tdcli_function ({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data);MsgsDel = {};for i=0 ,data.total_count_ do;if not data.messages_[i] then;if not MsgsDel[0] then;MsgsDel[0] = Msgs[i];end;table.insert(MsgsDel,Msgs[i]);end;end;if MsgsDel[0] then;tdcli_function({ID="DeleteMessages",chat_id_ = arg.chat_id_,message_ids_=MsgsDel},function(arg,data)end,nil);end;end,{chat_id_=msg.chat_id_}) tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(arg,tah) local admins = tah.members_ for i=0 , #admins do if tah.members_[i].status_.ID ~= "ChatMemberStatusEditor" and not is_Addictive(msg) then tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_ = msg.chat_id_,user_id_ = admins[i].user_id_,status_ = {ID = "ChatMemberStatusKicked"},}, function(arg,f) end, nil) end end end,nil)  
-end
-end     
-end
-end
+tdcli_function ({ID = "GetMessages",chat_id_ = msg.chat_id_,message_ids_ = Msgs},function(arg,data)
+								MsgsDel = {}
+								for i=0 ,data.total_count_ do
+									if not data.messages_[i] then
+										if not MsgsDel[0] then
+											MsgsDel[0] = Msgs[i]
+										end
+										table.insert(MsgsDel,Msgs[i])
+									end
+								end
+								if MsgsDel[0] then
+									tdcli_function({ID="DeleteMessages",chat_id_ = arg.chat_id_,message_ids_=MsgsDel},function(arg,data)end,nil)
+								end
+							end,{chat_id_=msg.chat_id_}) tdcli_function({ID = "GetChannelMembers",channel_id_ = msg.chat_id_:gsub("-100",""),filter_ = {ID = "ChannelMembersBots"},offset_ = 0,limit_ = 100 },function(arg,tah) local admins = tah.members_ for i=0 , #admins do if tah.members_[i].status_.ID ~= "ChatMemberStatusEditor" and not is_Addictive(msg) then tdcli_function ({ID = "ChangeChatMemberStatus",chat_id_ = msg.chat_id_,user_id_ = admins[i].user_id_,status_ = {ID = "ChatMemberStatusKicked"},}, function(arg,f) 
+											end, nil) 
+									end 
+								end 
+							end,nil)  
+						end
+					end     
+				end
+			end
 ------------------------------------------------------------------------
 if text and database:get(bot_id.."yousef:Del:Cmd:Group"..msg.chat_id_..":"..msg.sender_user_id_) == "true" then
 local NewCmmd = database:get(bot_id.."yousef:Set:Cmd:Group:New1"..msg.chat_id_..":"..text)
@@ -10648,7 +10696,10 @@ local text = msg.content_.text_
 local Get_Msg_Pin = database:get(bot_id..'yousef:Msg:Pin:Chat'..msg.chat_id_)
 if Get_Msg_Pin ~= nil then
 if text == Get_Msg_Pin then
-tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) if d.ID == 'Ok' then;database:del(bot_id..'yousef:Msg:Pin:Chat'..msg.chat_id_);end;end,nil)   
+tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) if d.ID == 'Ok' then
+							database:del(bot_id..'yousef:Msg:Pin:Chat'..msg.chat_id_)
+						end
+					end,nil)   
 elseif (msg.content_.sticker_) then 
 if Get_Msg_Pin == msg.content_.sticker_.sticker_.persistent_id_ then
 tdcli_function ({ID = "PinChannelMessage",channel_id_ = msg.chat_id_:gsub('-100',''),message_id_ = msg.id_,disable_notification_ = 0},function(arg,d) database:del(bot_id..'yousef:Msg:Pin:Chat'..msg.chat_id_) end,nil)   
@@ -10714,4 +10765,7 @@ end
 if data and data.type_ and data.type_.channel_ and data.type_.channel_.status_ and data.type_.channel_.status_.ID == "ChatMemberStatusEditor" then
 database:sadd(bot_id..'yousef:Chek:Groups',v)  
 end end,nil)
-end;CleangGroups();end;end
+end
+CleangGroups()
+end
+end
